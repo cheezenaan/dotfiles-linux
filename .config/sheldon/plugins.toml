@@ -1,0 +1,40 @@
+shell = "zsh"
+
+[templates]
+defer = """{% for file in files %}
+zsh-defer source "{{ file }}"
+{% endfor %}"""
+
+[plugins.zsh-defer]
+apply = ["source"]
+github = 'romkatv/zsh-defer'
+
+[plugins.anyframe]
+apply = ["source"]
+github = 'mollifier/anyframe'
+
+[plugins.powerlevel10k]
+apply = ["source"]
+github = 'romkatv/powerlevel10k'
+
+[plugins.asdf]
+apply = ["defer"]
+github = 'asdf-vm/asdf'
+
+[plugins.zsh-autosuggestions]
+apply = ["defer"]
+github = 'zsh-users/zsh-autosuggestions'
+
+[plugins.zsh-syntax-highlighting]
+apply = ["defer"]
+github = 'zsh-users/zsh-syntax-highlighting'
+
+[plugins.dotfiles-defer]
+apply = ["defer"]
+local = "~/.config/zsh/modules/defer"
+use = ["*.zsh"]
+
+[plugins.dotfiles-sync]
+apply = ["source"]
+local = "~/.config/zsh/modules"
+use = ["*.zsh"]
